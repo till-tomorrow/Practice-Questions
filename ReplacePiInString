@@ -1,0 +1,22 @@
+public class ReplacePiInString {
+
+	public static String replaceAllOccurrencesOfPi(String str, int length, int startIndex){
+	    if(length == 0) return null;
+	    if(startIndex == length) return "";
+
+	    String temp = replaceAllOccurrencesOfPi(str, length, startIndex + 1);
+	    if(str.charAt(startIndex) == 'p' && temp.charAt(0) == 'i'){
+	        //str.charAt(startIndex) = 'P';
+	    	str = str.substring(0, startIndex) + "P" + str.substring(startIndex + 1, str.length());
+	        temp= "I" + temp.substring(1);
+	    }
+	    return (str.charAt(startIndex)) + temp;
+	}
+	
+	public static void main(String[] args) {
+
+		String str = "ppiapipappipi";
+		System.out.println(replaceAllOccurrencesOfPi(str, str.length(), 0));
+	}
+
+}
